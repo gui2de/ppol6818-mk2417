@@ -6,7 +6,7 @@ I am a Fulbright Scholar currently pursuing a Master’s in International Develo
 
 My academic and professional journey has been dedicated to creating meaningful change through research, advocacy, and development initiatives. As a Research Assistant, I have worked on health and education service delivery for refugees and marginalized communities, gaining firsthand insight into the structural challenges they face. Beyond research, I have led community-driven projects focused on education, youth empowerment, and climate action. I strongly believe in the transformative power of education and its role in breaking cycles of poverty and displacement. My work focuses on developing evidence-based policies that expand access to quality education and healthcare for displaced populations, integrate climate resilience into development strategies, and create sustainable solutions that empower refugees to build secure and self-sufficient futures.
 
-##Expereince as Fulbright scholar (question asked by reviewer)
+### Expereince as Fulbright scholar (question asked by reviewer)
 
 It has been great so far, sometimes annoying because of alot of documentation but overall great. 
 
