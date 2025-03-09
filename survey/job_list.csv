@@ -1,0 +1,9 @@
+sector_id,sector_name,job_id,job_name,sector_filter
+1,Healthcare,101,Nurse,1
+1,Healthcare,102,Doctor,1
+1,Healthcare,103,Pharmacist,1
+2,IT & Technology,201,Software Engineer,2
+2,IT & Technology,202,Data Analyst,2
+2,IT & Technology,203,Cybersecurity Specialist,2
+3,Manufacturing,301,Factory Worker,3
+3,Manufacturing,302,Welder,3
