@@ -32,58 +32,48 @@ Using the simulate command, we ran this program 500 times for each of the follow
 All results were combined into one dataset: `combined_sim_results.dta`.
 
 ## Graphs and Interpretation
-
 ### 1. Boxplot of Beta Estimates by Sample Size
-
-File: `boxplot.png`
-
 This graph shows how the distribution of beta estimates varies with N.
-
+### Distribution of Beta Estimates (Boxplot)
+![Graph1.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph1.png)
 Interpretation:
 - For N = 10, the beta estimates are highly spread out with more noise and outliers.
 - As sample size increases, the estimates become tightly clustered around the true beta = 3.
 - The median is stable across groups, confirming the estimator is unbiased.
 
 ### 2. Standard Error vs Sample Size
-
-File: `standard_error_plot.png`
-
 Line graph showing the average standard error of beta at each sample size.
+
+![Graph3.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph3.png)
 
 Interpretation:
 - The standard error decreases sharply as N increases.
 - This reflects the increased precision of the regression estimate with larger samples.
 
 ### 3. Confidence Interval Width vs Sample Size
-
-File: `ci_width_plot.png`
-
 Line graph showing how wide the 95% confidence intervals are, on average.
-
+![Graph4.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph4.png)
 Interpretation:
 - Confidence intervals shrink rapidly with larger sample size.
 - Larger samples allow us to make tighter and more reliable inferences.
 
 ### 4. Dot Plot of Mean Beta and 95% Confidence Intervals
 
-File: `dotplot_cis.png`
-
 Dots represent the mean beta estimate at each N, and vertical bars show 95% confidence intervals.
-
+### Mean Beta Estimates with 95% CIs
+![Graph5.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph5.png)
 Interpretation:
 - All mean estimates are very close to the true value (beta = 3).
 - Confidence intervals get narrower as N increases, showing increased reliability.
 
 ### 5. Density Plots of Beta Estimates
-
-File: `density_plot.png`
-
 Smooth curves show the distribution of beta estimates for each sample size.
 
 Interpretation:
 - At N = 10, the distribution is wide and flat.
 - At larger sample sizes, the distributions become narrow and tightly centered around 3.
 - This visualizes how sampling noise decreases with larger N.
+![Distribution of Beta Estimates (Density)](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph.png)
 
 ### 6. Summary Table of Simulation Results
 
@@ -98,8 +88,8 @@ Interpretation:
 - The mean beta is close to the true value across all sample sizes.
 - Standard errors and confidence interval widths drop rapidly as N increases.
 - The estimates become both accurate and highly precise as N gets larger.
-
-# Part 1: Sampling Noise in a Fixed Population
+  ### Histogram by Sample Size
+![Graph7.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/Graph7.png)
 
 ## Analysis of Simulation Results
 
@@ -113,4 +103,4 @@ This simulation illustrates how:
 - Larger samples provide greater precision, reflected in smaller standard errors and tighter confidence intervals.
 - Even though the estimator is unbiased, small samples are riskier when making inferences.
 
-These findings highlight the importance of adequate sample sizes in applied research. *******************
+These findings highlight the importance of adequate sample sizes in applied research. 
