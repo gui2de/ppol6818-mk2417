@@ -192,7 +192,78 @@ These results highlight three key statistical principles:
 ---
 
 # Comparison to part 1
+##  Part 2, Question 5: Comparing Fixed Population vs Superpopulation
 
+### Why could I draw larger samples in Part 2?
+
+In **Part 1**, I was limited to sampling from a fixed population of 10,000 individuals. This restricted my maximum sample size to 10,000, since drawing more than that would exhaust the dataset and violate assumptions of independence and randomness.
+
+However, in **Part 2**, I was simulating from an **infinite superpopulation** by generating new observations from the data-generating process (DGP) each time. This allowed me to draw **as large a sample as I wanted**, including sizes up to **over 2 million (2,097,152)**, because each sample was generated fresh — no constraints from a finite dataset.
+
+---
+
+### Why are the SEM and Confidence Intervals different between Part 1 and Part 2?
+
+Even at the same sample sizes (e.g., N = 10,000), the **standard errors (SEM)** and **confidence interval (CI) widths** in Part 2 are **slightly larger** than those in Part 1. This happens because:
+
+- In **Part 1**, we repeatedly sampled from the same finite population. The structure of the data was fixed, so less randomness was introduced in each sample.
+- In **Part 2**, each simulation draws **new values of X and ε**, so there's **greater variability between samples**. Every estimate is influenced by freshly generated randomness, increasing the variability of the sampling distribution slightly.
+
+Thus, even though both parts use the same DGP, the **source of sampling noise differs**, which results in slightly different standard errors and confidence bands.
+
+---
+
+### Can we visualize the comparison?
+
+Yes! I merged summary statistics from both Part 1 and Part 2 and created the following comparison graphs:
+
+####  Mean Beta Estimates with 95% CIs
+
+This plot shows that estimates from both methods center around the true beta = 3. However, the red points (superpopulation) have slightly wider error bars than the blue ones (fixed population) at low sample sizes.
+
+![Mean Beta Comparison](graph/comparison1.png)
+
+---
+
+####  Standard Error vs Sample Size
+
+This graph shows how both SEMs drop with increasing N, but SEM from Part 2 (dashed red line) stays **consistently above** the fixed population's SEM (solid blue line).
+
+![Standard Error Comparison](graph/comparison2.png)
+
+---
+
+#### Confidence Interval Width vs Sample Size
+
+The same trend appears in CI widths: estimates from superpopulations are less precise at small Ns. As N increases, both lines converge closely.
+
+![CI Width Comparison](graph/comparison3.png)
+
+---
+
+###  Comparison Table (Key Sample Sizes)
+
+| Sample Size (N) | Mean Beta (Part 1) | SEM (Part 1) | CI Width (Part 1) | Mean Beta (Part 2) | SEM (Part 2) | CI Width (Part 2) |
+|----------------:|--------------------:|-------------:|-------------------:|--------------------:|-------------:|-------------------:|
+| 10              | 2.984               | 0.289        | 1.60               | 3.006               | 0.352        | 1.62               |
+| 100             | 3.001               | 0.101        | 0.40               | 3.000               | 0.102        | 0.40               |
+| 1,000           | 2.999               | 0.031        | 0.12               | 3.001               | 0.032        | 0.12               |
+| 10,000          | 3.000               | 0.010        | 0.039              | 3.000               | 0.010        | 0.039              |
+
+> *Values for Part 1 are rounded approximations; Part 2 values come from collapsed simulation data.*
+
+---
+
+### Conclusion
+
+This comparison confirmed important statistical insights:
+
+- **OLS estimates are unbiased** in both parts — they center around the true value of 3 across all sample sizes.
+- As expected, **larger samples reduce sampling noise**: SEM and CI width fall dramatically as N increases.
+- **Superpopulation sampling introduces more randomness** at small N, making SEM and CI widths slightly wider than in the fixed population case.
+- At high N (e.g., N > 10,000), both simulations **converge**, confirming that large samples overcome initial differences in data structure or randomness.
+
+These visuals and metrics highlight the reliability and efficiency gains of increasing sample size — a key takeaway for empirical research design.
 
 
 
