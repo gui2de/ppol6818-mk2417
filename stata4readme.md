@@ -381,14 +381,143 @@ This closely matches our simulation result: **566 clusters**.
 - When planning cluster RCTs, it is **crucial to account for implementation realities** like compliance.
 
 ---
+# Part 3: De-Biasing a Parameter Estimate Using Controls
+
+This section of the assignment explores how different regression specifications perform in estimating a causal treatment effect (β) under various forms of bias and noise. We use simulations to show how controlling for confounders and adding strata fixed effects improves accuracy and consistency.
+
+---
+
+## Question 1: Develop a DGP for Outcome `Y`
+
+We start by generating a realistic data generating process (DGP) with the following structure:
+
+- Binary treatment `D` (assigned probabilistically)
+- Three continuous covariates:
+  - `confounder`: Affects both `D` and `Y`
+  - `outcome_only`: Affects only `Y`
+  - `treatment_only`: Affects only `D`
+- Strata groups that affect outcome `Y`
+- Random noise term (ε ~ N(0, 1))
+
+The outcome equation is:
+Y = β*D + confounder + outcome_only + strata_effect + ε
 
 
+We simulate 10 strata and 100 individuals per stratum, for a total of 1,000 observations.
+
+---
+
+## Question 2: Include Strata Groups and Covariates
+
+We structure the data so that:
+
+- `strata_id` (1 to 10) reflects grouping (e.g., schools)
+- `strata_effect` is drawn from N(0, 0.3)
+- Covariates are generated from standard normals
+- Treatment is assigned using a logistic model:
+Pr(D = 1) = invlogit(0.5 * confounder + 0.5 * treatment_only)
 
 
+This assignment probability ensures that treatment is **not fully randomized**, and confounding is introduced.
 
+---
 
+## Question 3: Verify Covariate Roles
 
+We use a series of regressions to empirically validate the role of each covariate.
 
+### `confounder` affects both `D` and `Y`:
+     reg D confounder treatment_only
+     reg Y confounder
 
+Both results show statistical significance. This confirms that confounder biases naive estimates of treatment.
 
+-outcome_only affects Y but not D:
+       reg D outcome_only
+       reg Y outcome_only
+-Insignificant for D, but highly significant for Y. It improves outcome precision when included.
 
+-Treatment_only affects D but not Y:
+     reg D treatment_only
+     reg Y treatment_only
+-Significant for D only. Helps simulate non-confounding treatment determinants.
+
+## Question 4: Simulate Five Models
+
+We define a simulation program that runs five regression models on the generated dataset across different sample sizes (N = 100 to N = 3200).
+
+Model Specifications
+Each simulation is run 500 times for each N. We store the estimated β (_b[D]) and analyze the distribution.
+### Model Specifications
+
+| Model | Description |
+|-------|-------------|
+| M1    | Naive: `reg Y D` |
+| M2    | + Confounder: `reg Y D confounder` |
+| M3    | + OutcomeOnly: `reg Y D confounder outcome_only` |
+| M4    | + Strata FE: `reg Y D confounder outcome_only i.strata_id` |
+| M5    | + All Covariates: `reg Y D confounder outcome_only treatment_only i.strata_id` |
+
+##  Graphs & Interpretation – Part 3: De-biasing a Parameter Estimate
+
+This section evaluates how different regression models estimate the treatment effect (β) under various sample sizes and model specifications. We assess bias, variance, and convergence by analyzing the distribution of simulated estimates.
+
+---
+
+### Violin Plot of Treatment Estimates (N = 800)
+
+![violin_part3_N800.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/violin_part3_N800.png)
+
+**Interpretation:**
+
+This violin plot shows the distribution of the estimated treatment effect (β̂) across 500 simulations for five regression models with a fixed sample size of 800. Each model varies in the covariates and fixed effects it includes.
+
+- **M1: Naive** — Overestimates β̂ due to omitted variable bias; centered far above true β = 0.5.
+- **M2: + Confounder** — Corrects for selection bias; much closer to the true value.
+- **M3: + OutcomeOnly** — Adds a variable that improves precision but doesn't affect bias.
+- **M4: + Strata FE** — Captures group-level heterogeneity, improving precision.
+- **M5: + All Covariates** — Most accurate and precise; centered tightly around β = 0.5.
+
+---
+
+### Mean Estimate Convergence Plot
+
+![mean_convergence.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/mean_convergence.png)
+
+**Interpretation:**
+
+This line graph shows how the **mean** of β̂ across simulations changes with increasing sample size (N).
+
+- **Model 1** remains biased at all N.
+- **Models 2–5** quickly converge toward the true treatment effect (β = 0.5).
+- **Model 5** is both unbiased and the most stable.
+
+Takeaway: **Including confounders and fixed effects removes bias and improves convergence**.
+
+---
+
+### Standard Deviation of Estimates
+
+![sd_convergence.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/sd_convergence.png)
+
+**Interpretation:**
+
+This plot displays the **standard deviation** of treatment effect estimates for each model as a function of sample size.
+
+- **Model 1** has the highest variability due to unadjusted confounding.
+- As N increases, **Models 4 and 5** consistently show the **lowest variance**, due to better specification and control of residual variation.
+- Variance shrinks with N across all models, confirming consistency.
+
+---
+
+##  Summary of Visual Findings
+
+- Omitting the confounder (Model 1) results in persistent upward bias, even with large samples.
+- Adding relevant controls (Model 2) drastically improves accuracy.
+- Including outcome-only covariates (Model 3) further reduces variance.
+- Adding fixed effects for strata (Model 4) enhances precision.
+- Combining all covariates and FE (Model 5) yields the most consistent and unbiased estimator.
+
+These results reinforce key lessons in causal inference: **model specification and covariate control matter more than just large sample sizes when estimating treatment effects**.
+
+## the dofile for this code is also in this same repo named as stata4.do 
