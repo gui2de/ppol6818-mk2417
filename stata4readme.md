@@ -316,7 +316,6 @@ The violin plot shows the distribution of t-statistics on the treatment coeffici
 ### Power vs. Number of Clusters
 
 This line plot summarizes the average power by number of clusters:
-
 ![power_vs_clusters_15.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/power_vs_clusters_15.png)
 
 #### Interpretation:
@@ -360,7 +359,7 @@ This plot shows the distribution of treatment effect t-statistics at various sch
 
 We calculate the **proportion of simulations** with p < 0.05 (i.e., statistical significance) at each cluster count.
 
-![power70%_compliance.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/power70%_compliance.png)
+![power70%_compliance.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/power70%_compliance.png) 
 
 #### Interpretation:
 
