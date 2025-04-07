@@ -359,8 +359,7 @@ This plot shows the distribution of treatment effect t-statistics at various sch
 
 We calculate the **proportion of simulations** with p < 0.05 (i.e., statistical significance) at each cluster count.
 
-![power70%_compliance.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/power70%_compliance.png) 
-
+![power70%_compliance.png](https://github.com/gui2de/ppol6818-mk2417/blob/1dad4c3afb83b126e6c58716d69bb8e08b7d35f7/graph/power70%25_compliance.png)
 #### Interpretation:
 
 - Power increases with number of schools, but the curve rises **more slowly** than in the full-compliance case.
