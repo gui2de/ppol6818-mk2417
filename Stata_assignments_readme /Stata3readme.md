@@ -123,7 +123,8 @@ To simulate this, I created a program that draws new synthetic data each time ba
 #### Histogram of Beta Estimates by Sample Size
 This set of histograms shows how the distribution of estimated slopes (`β`) becomes tighter and more concentrated around the true value (β = 3) as sample size increases.
 
-![Histogram of Beta Estimates](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/histograms.png)
+![Histogram of Beta Estimates](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/histograms.png)
+
 At very small sample sizes (e.g., N = 4, 8, 10), estimates are spread widely across the x-axis, showing how noisy regressions can be when based on limited data. By the time N reaches 100,000+, the estimates concentrate almost exclusively around 3, indicating minimal noise.
 
 ---
@@ -131,7 +132,9 @@ At very small sample sizes (e.g., N = 4, 8, 10), estimates are spread widely acr
 #### Boxplot of Beta Estimates by Sample Size
 The boxplot below demonstrates how the spread (variance and IQR) of the beta estimates collapses as N increases.
 
-![Boxplot of Beta Estimates](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/boxplot.png)
+![Boxplot of Beta Estimates](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/boxplot.png)
+
+
 Small sample sizes show many outliers and wider boxes, while larger samples become highly concentrated. This visualization makes the variance reduction across sample sizes extremely clear.
 
 ---
@@ -139,7 +142,9 @@ Small sample sizes show many outliers and wider boxes, while larger samples beco
 #### Density Plot: Comparing Key Sample Sizes
 This density plot overlays the distribution of beta estimates for five key sample sizes. The taller and narrower the curve, the more concentrated and precise the estimates.
 
-![Density Plot](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/densityplot.png)
+![Density Plot](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/densityplot.png)
+
+
 
 By the time we reach N = 1,000,000, the density is sharply peaked around the true value of β = 3, indicating very low sampling variability.
 
@@ -219,21 +224,26 @@ Yes! I merged summary statistics from both Part 1 and Part 2 and created the fol
 
 This plot shows that estimates from both methods center around the true beta = 3. However, the red points (superpopulation) have slightly wider error bars than the blue ones (fixed population) at low sample sizes.
 
-![Mean Beta Comparison](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/comparison1.png)
+![Mean Beta Comparison](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/comparison3.png)
+
+
 ---
 
 ####  Standard Error vs Sample Size
 
 This graph shows how both SEMs drop with increasing N, but SEM from Part 2 (dashed red line) stays **consistently above** the fixed population's SEM (solid blue line).
 
-![Standard Error Comparison](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/comparison2.png)
+![Standard Error Comparison](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/comparison1.png)
+
+
 ---
 
 #### Confidence Interval Width vs Sample Size
 
 The same trend appears in CI widths: estimates from superpopulations are less precise at small Ns. As N increases, both lines converge closely.
 
-![CI Width Comparison](https://github.com/gui2de/ppol6818-mk2417/blob/main/graph/comparison3.png)
+![comparison3.png](https://raw.githubusercontent.com/gui2de/ppol6818-mk2417/main/graph/comparison2.png)
+
 ---
 
 ###  Comparison Table (Key Sample Sizes)
